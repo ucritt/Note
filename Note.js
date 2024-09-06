@@ -1,14 +1,12 @@
-let currentPage = 0;
+let currentPage = 1;
 
 function nextPage(pageNumber) {
-  const pages = document.querySelectorAll('.page');
-  if (currentPage < pages.length) {
-    pages[currentPage].style.transform = 'rotateY(0deg)';
-    currentPage = pageNumber;
-  }
+  document.getElementById(`page${currentPage}`).style.display = 'none';
+  document.getElementById(`page${pageNumber}`).style.display = 'block';
+  currentPage = pageNumber;
 }
 
-function showMore() {
-  const moreStory = document.getElementById('moreStory');
-  moreStory.classList.toggle('hidden');
-}
+// Initialize the first page
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('page1').style.display = 'block';
+});
